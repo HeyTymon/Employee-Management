@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 
 public class EmployeeManagement<T extends Employee>
 {
-    ArrayList<T> employeeList = new ArrayList<>();
+    List<T> employeeList = new ArrayList<>();
 
     double averageSalary = 0;
 
@@ -24,21 +24,16 @@ public class EmployeeManagement<T extends Employee>
 
     public void sortAlphabetically()
     {
-        List<T> list =  employeeList.stream()
+        employeeList =  employeeList.stream()
                 .sorted((s1,s2) -> s1.toString().compareTo(s2.toString()))
                 .collect(Collectors.toList());
-
-        employeeList = (ArrayList<T>) list;
-
     }
 
     public void sortSalary()
     {
-        List<T> list = employeeList.stream()
+        employeeList = employeeList.stream()
                 .sorted((d1,d2) -> Double.valueOf(d1.getSalary()).compareTo(Double.valueOf(d2.getSalary())))
                 .collect(Collectors.toList());
-
-        employeeList = (ArrayList<T>) list;
     }
 
 

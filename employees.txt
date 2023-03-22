@@ -1,0 +1,16 @@
+Jose 
+Calderon
+2000.0
+Zara 
+Berger
+3500.0
+Kacie
+Moon
+4500.0
+Franklin
+Mcconnell
+5500.0
+Sian
+Sparks
+3000.0
+

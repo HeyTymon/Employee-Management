@@ -13,17 +13,20 @@ public class Main {
 
         EmployeeManagement<Employee> employees = new EmployeeManagement<>();
 
-        employees.addNewEmployee(d1);
-        employees.addNewEmployee(d2);
-        employees.addNewEmployee(d3);
-        employees.addNewEmployee(d4);
-        employees.addNewEmployee(d5);
+//        employees.addNewEmployee(d1);
+//        employees.addNewEmployee(d2);
+//        employees.addNewEmployee(d3);
+//        employees.addNewEmployee(d4);
+//        employees.addNewEmployee(d5);
+//
+//        employees.sortAlphabetically();
+//        employees.displayList();
+//
+//        employees.sortSalary();
+//        employees.displayList();
 
-        employees.sortAlphabetically();
-        employees.displayList();
-
-        employees.sortSalary();
-        employees.displayList();
+          EmployeeReader reader = new EmployeeReader();
+          //reader.readFile();
 
 
 
