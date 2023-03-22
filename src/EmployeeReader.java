@@ -1,24 +1,31 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeReader
+public class EmployeeReader<T extends Employee>
 {
-    BufferedReader reader;
-
     List<String> firstNameList = new ArrayList<>();
     List<String> lastNameList = new ArrayList<>();
     List<Double> salaryList = new ArrayList<>();
 
-    public <T extends Employee>  void newList(List<T> newlist)
+    public void newList(List<T> newlist)
     {
-        
+        for(int i = 0; i < firstNameList.size(); i++)
+        {
+            T thingLikeEmployee = (T) new Employee("","",0);
+            thingLikeEmployee.setFirstName(firstNameList.get(i));
+            thingLikeEmployee.setLastName(lastNameList.get(i));
+            thingLikeEmployee.setSalary(salaryList.get(i));
+
+            newlist.add(i,thingLikeEmployee);
+        }
     }
 
-    public <T extends Employee> void readFile(List<T> list)
+    BufferedReader reader;
+
+    public void readFile()
     {
         try {
             reader = new BufferedReader(new FileReader("employees.txt"));
@@ -43,6 +50,10 @@ public class EmployeeReader
                if(i == 3) i =0;
                i++;
             }
+
+//            System.out.println(firstNameList);
+//            System.out.println(lastNameList);
+//            System.out.println(salaryList);
 
         } catch (IOException e) {
             throw new RuntimeException(e);

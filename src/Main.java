@@ -10,7 +10,6 @@ public class Main {
         Developer d4 = new Developer("Michał", "Boguski", 6750);
         Developer d5 = new Developer("Michał", "Jedliński", 6750);
 
-
         EmployeeManagement<Employee> employees = new EmployeeManagement<>();
 
 //        employees.addNewEmployee(d1);
@@ -26,9 +25,10 @@ public class Main {
 //        employees.displayList();
 
           EmployeeReader reader = new EmployeeReader();
-          //reader.readFile();
-
-
-
+          reader.readFile();
+          System.out.println();
+          reader.newList(employees.employeeList);
+          employees.displayList();
+          
     }
 }
