@@ -19,8 +19,12 @@ public class Main {
         employees.addNewEmployee(d4);
         employees.addNewEmployee(d5);
 
-        System.out.println(employees.getAverageSalary());
-        employees.biggerSalaryThanAverage();
+        employees.sortAlphabetically();
+        employees.displayList();
+
+        employees.sortSalary();
+        employees.displayList();
+
 
 
     }

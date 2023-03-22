@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class EmployeeManagement<T extends Employee>
 {
@@ -24,24 +22,23 @@ public class EmployeeManagement<T extends Employee>
         employeeList.remove(thingToDelete);
     }
 
-    public void sortAlphabetically(boolean direction)
+    public void sortAlphabetically()
     {
-        Collections.sort(employeeList, (s1, s2) -> (s1.toString()).compareTo(s2.toString()));
+        List<T> list =  employeeList.stream()
+                .sorted((s1,s2) -> s1.toString().compareTo(s2.toString()))
+                .collect(Collectors.toList());
 
-        if(!direction)
-        {
-            Collections.reverse(employeeList);
-        }
+        employeeList = (ArrayList<T>) list;
+
     }
 
-    public void sortSalary(boolean direction)
+    public void sortSalary()
     {
-        Collections.sort(employeeList, (d1, d2) -> Double.valueOf(d1.getSalary()).compareTo(Double.valueOf(d2.getSalary())));
+        List<T> list = employeeList.stream()
+                .sorted((d1,d2) -> Double.valueOf(d1.getSalary()).compareTo(Double.valueOf(d2.getSalary())))
+                .collect(Collectors.toList());
 
-        if(!direction)
-        {
-            Collections.reverse(employeeList);
-        }
+        employeeList = (ArrayList<T>) list;
     }
 
 
