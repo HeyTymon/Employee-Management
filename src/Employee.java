@@ -12,7 +12,9 @@ public class Employee
 
     @Override
     public String toString() {
-        return lastName + " " + firstName;
+
+        return "Name: " + firstName + "\n" + "Last name: " + lastName + "\n" + "Salary: " + salary + "\n";
+        //return lastName + " " + firstName;
     }
 
     public String introduceYourself()

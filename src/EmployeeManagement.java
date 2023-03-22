@@ -7,12 +7,11 @@ public class EmployeeManagement<T extends Employee>
 {
     ArrayList<T> employeeList = new ArrayList<>();
 
+    double averageSalary = 0;
+
     public void displayList()
     {
-        for(Employee employee: employeeList)
-        {
-            System.out.println(employee.introduceYourself());
-        }
+       employeeList.forEach(System.out::println);
     }
 
     public void addNewEmployee(T thingToAdd)
@@ -29,7 +28,7 @@ public class EmployeeManagement<T extends Employee>
     {
         Collections.sort(employeeList, (s1, s2) -> (s1.toString()).compareTo(s2.toString()));
 
-        if(direction)
+        if(!direction)
         {
             Collections.reverse(employeeList);
         }
@@ -45,16 +44,25 @@ public class EmployeeManagement<T extends Employee>
         }
     }
 
-    public void getEmployeeType()
-    {
-        employeeList.getClass();
-    }
 
     public void promotion(T thingToPromote)
     {
         thingToPromote.promotion();
     }
 
+    public double getAverageSalary()
+    {
+        averageSalary = 0;
+        employeeList.forEach(employee -> averageSalary += employee.getSalary());
+        return averageSalary /= employeeList.size();
+    }
+
+    public void biggerSalaryThanAverage()
+    {
+        employeeList.stream()
+                .filter(employee -> employee.getSalary() > getAverageSalary())
+                .forEach(System.out::println);
+    }
 
 
 }
